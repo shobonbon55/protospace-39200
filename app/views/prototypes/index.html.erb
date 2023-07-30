@@ -9,7 +9,9 @@
        <%= render partial: 'prototype' , collection: @prototypes %>
       </div>
       <% else %>
-        <%= render partial: 'prototype' , collection: @prototypes %>
+       <div class="card__wrapper">
+       <%= render partial: 'prototype' , collection: @prototypes %>
+         </div>
     <% end %>
   </div>
 </main>
