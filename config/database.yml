@@ -8,7 +8,8 @@ development:
   username: root
   password:
   host: localhost
-  database: protospace-39200_development
+  database: protospace_39200_development
+
 
 test:
   <<: *default
@@ -16,7 +17,7 @@ test:
   username: root
   password:
   host: localhost
-  database: protospace-39200_test
+  database: protospace_39200_test
 
 production:
   <<: *default
@@ -26,18 +27,7 @@ production:
 
 
 
-
-
-
-
-
-
-
-
-
 # **********元のコード************
-
-
 # # MySQL. Versions 5.5.8 and up are supported.
 # #
 # # Install the MySQL driver
