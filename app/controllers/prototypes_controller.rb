@@ -1,5 +1,7 @@
 class PrototypesController < ApplicationController
-  before_action :authenticate_user!, except: [:index] 
+  # before_action :authenticate_user!, except: [:index] 
+
+  before_action :authenticate_user!, except: [:index, :show]
 
   before_action :move_to_index, only: [:edit]
   
@@ -28,6 +30,7 @@ class PrototypesController < ApplicationController
       @comments = @prototype.comments.includes(:user) 
     end
 
+
     def edit
       @prototype = Prototype.find(params[:id])
     end
@@ -54,18 +57,30 @@ class PrototypesController < ApplicationController
   end
 
   def move_to_index
-  if user_signed_in?
-    @prototype = Prototype.find(params[:id]) 
-    unless current_user == @prototype.user
-      redirect_to action: :index
-    end
-    else
-      redirect_to action: :index
+    if user_signed_in?
+      @prototype = Prototype.find(params[:id])
+      unless current_user == @prototype.user
+        redirect_to action: :index
+      end
     end
   end
-
-
 end
+
+
+
+  # def move_to_index
+  # if user_signed_in?
+  #   @prototype = Prototype.find(params[:id]) 
+  #   unless current_user == @prototype.user
+  #     redirect_to action: :index
+  #   end
+  #   else
+  #     redirect_to action: :index
+  #   end
+  # end
+
+
+
 
 # createの所要確認 20230723?
 # def create
